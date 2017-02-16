@@ -1,0 +1,10 @@
+# Generated files
+client_secret.json
+.DS_Store
+mean.pem.txt
+
+# Dependency directories
+/node_modules
+/dist
+/.idea
+/resources
