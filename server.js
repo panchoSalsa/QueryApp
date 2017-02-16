@@ -1,15 +1,20 @@
-const mysql      = require('mysql'),
-	database_config = require('./config/database');	// load the database config
+var express  = require('express'),
+	app      = express(),
+	port     = process.env.PORT || 8080,
+	morgan       = require('morgan'),
+	bodyParser   = require('body-parser'),
+	methodOverride = require('method-override');
 
-var connection = mysql.createConnection(database_config);
+// set up our express application
+app.use(morgan('dev')); // log every request to the console
+app.use(bodyParser()); // get information from html forms
+app.set('view engine', 'ejs'); // set up ejs for templating
 
-connection.connect();
 
-connection.query('SELECT name from genres', function(err, rows, fields) {
-  if (!err)
-    console.log('The solution is: ', rows);
-  else
-    console.log('Error while performing Query.');
-});
+// routes ==================================================
+require('./app/routes')(app); // configure our routes
 
-connection.end();
+// launch ======================================================================
+app.listen(port);
+
+

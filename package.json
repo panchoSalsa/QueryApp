@@ -4,6 +4,10 @@
 	"main": "server.js",
 	"dependencies": {
 		"express": "^4.10.6",
-		"mysql": "^2.5.4"
+		"ejs" : "~0.8.5",
+		"mysql": "^2.5.4",
+		"morgan": "~1.0.0",
+		"body-parser": "~1.0.0",
+		"method-override": "~1.0.0"
 		}
 }
