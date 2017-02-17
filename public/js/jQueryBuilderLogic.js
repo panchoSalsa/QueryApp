@@ -29,7 +29,7 @@ $('#btn-get-sql').on('click', function() {
 	var result = $('#builder').queryBuilder('getSQL');
 
 	if (result.sql.length) {
-		alert("query is " + result.sql);
-		
+		result = "select * from movies where " + result.sql;
+		this.href = 'data:text/plain;charset=utf-8,' + encodeURIComponent(result);
 	}
 });

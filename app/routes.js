@@ -11,7 +11,7 @@ module.exports = function(app) {
     });
 
     app.get('/all', function(req, res) {
-        db.query("Select id, title, year, director from movies limit 0, 100",function(err, rows, fields) {
+        db.query("Select id, title, year, director from movies limit 0, 200",function(err, rows, fields) {
             if (!err) {
                 res.send(JSON.stringify(rows));
             }
