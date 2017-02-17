@@ -28,6 +28,9 @@ $('#builder').queryBuilder({
 $('#btn-get-sql').on('click', function() {
 	var result = $('#builder').queryBuilder('getSQL');
 
+	// TO-DO
+	// disable saving query when no query available 
+
 	if (result.sql.length) {
 		result = "select * from movies where " + result.sql;
 		this.href = 'data:text/plain;charset=utf-8,' + encodeURIComponent(result);
