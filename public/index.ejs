@@ -6,6 +6,7 @@
     <title>RedCap Query App</title>
     <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.2/css/bootstrap.min.css"> <!-- load bootstrap css -->
     <link rel="stylesheet" href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.min.css"> <!-- load fontawesome -->
+    <link rel="stylesheet" href="js/jQuery-QueryBuilder-2.4.1/dist/css/query-builder.default.css">
     <style>
         body        { padding-top:80px; }
     </style>
@@ -13,14 +14,17 @@
 
     <script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script><!-- load jquery -->
     <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.0.8/angular.min.js"></script><!-- load angular -->
+    <script src="https://cdn.jsdelivr.net/jquery.query-builder/2.4.1/js/query-builder.standalone.min.js"> </script>
     <script src="js/controllers/query_controller.js"></script>
     <script src="js/services/query_service.js"></script>
     <script src="js/core.js"></script>
 
-
 </head>
 <body ng-controller="mainController">
     <div class="container">
+
+
+        <div id="builder"></div>
 
         <div class="col-sm-6 col-sm-offset-3">
 
@@ -56,6 +60,7 @@
         </table>
 
     </div>
+    <script src="js/jQueryBuilderLogic.js"></script>
     
 </body>
 </html>
