@@ -7,19 +7,25 @@ module.exports = function(app) {
     // handle things like api calls
 
     // sample api route
+    // app.get('/', function(req, res) {
+    //     db.query("Select name from genres",function(err, rows, fields) {
+    //         if (!err)
+    //             res.send(rows);
+    //         else
+    //             res.send(err);
+    //     });
+    // });
+
+
     app.get('/', function(req, res) {
-        // use mongoose to get all nerds in the database
-        // Nerd.find(function(err, nerds) {
+        res.render('../public/index.ejs');
+    });
 
-        //     // if there is an error retrieving, send the error. 
-        //                     // nothing after res.send(err) will execute
-        //     if (err)
-        //         res.send(err);
 
-        //     res.json(nerds); // return all nerds in JSON format
-        // });
+    // route to handle creating goes here (app.post)
 
-        db.query("Select name from genres",function(err, rows, fields) {
+    app.post('/query', function(req,res) {
+        db.query(req.body.query, function(err, rows, fields) {
             if (!err)
                 res.send(rows);
             else
@@ -27,13 +33,14 @@ module.exports = function(app) {
         });
     });
 
-    // route to handle creating goes here (app.post)
+
+
     // route to handle delete goes here (app.delete)
 
     // frontend routes =========================================================
     // route to handle all angular requests
-    app.get('/index', function(req, res) {
-        res.sendfile('./public/index.html'); // load our public/index.html file
-    });
+    // app.get('/', function(req, res) {
+    //     res.render('../public/form.ejs');; // load our public/index.ejs file
+    // });
 
 };

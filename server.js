@@ -7,7 +7,17 @@ var express  = require('express'),
 
 // set up our express application
 app.use(morgan('dev')); // log every request to the console
-app.use(bodyParser()); // get information from html forms
+
+//get information from html forms
+app.use(bodyParser.urlencoded({
+    extended: true
+}));
+
+/**bodyParser.json(options)
+ * Parses the text as JSON and exposes the resulting object on req.body.
+ */
+app.use(bodyParser.json());
+
 app.set('view engine', 'ejs'); // set up ejs for templating
 
 
