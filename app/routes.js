@@ -7,27 +7,30 @@ module.exports = function(app) {
     // handle things like api calls
 
     // sample api route
-    // app.get('/', function(req, res) {
-    //     db.query("Select name from genres",function(err, rows, fields) {
-    //         if (!err)
-    //             res.send(rows);
-    //         else
-    //             res.send(err);
-    //     });
-    // });
+
 
 
     app.get('/', function(req, res) {
         res.render('../public/index.ejs');
     });
 
+    app.get('/all', function(req, res) {
+        db.query("Select * from genres",function(err, rows, fields) {
+            if (!err) {
+                res.send(JSON.stringify(rows));
+            }
+            else
+                res.send(err);
+        });
+    });
+
 
     // route to handle creating goes here (app.post)
 
     app.post('/query', function(req,res) {
-        db.query(req.body.query, function(err, rows, fields) {
+        db.query("select first_name from stars limit 0,5", function(err, rows, fields) {
             if (!err)
-                res.send(rows);
+                res.send(JSON.stringify(rows));
             else
                 res.send(err);
         });

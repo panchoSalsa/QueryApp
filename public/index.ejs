@@ -1,7 +1,7 @@
 <!-- ./public/index.ejs -->
 
 <!doctype html>
-<html>
+<html ng-app="queryApp">
 <head>
     <title>RedCap Query App</title>
     <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.2/css/bootstrap.min.css"> <!-- load bootstrap css -->
@@ -9,23 +9,37 @@
     <style>
         body        { padding-top:80px; }
     </style>
+
+
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script><!-- load jquery -->
+    <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.0.8/angular.min.js"></script><!-- load angular -->
+    <script src="js/controllers/query_controller.js"></script>
+    <script src="js/services/query_service.js"></script>
+    <script src="js/core.js"></script>
+
+
 </head>
-<body>
+<body ng-controller="mainController">
     <div class="container">
 
         <div class="col-sm-6 col-sm-offset-3">
 
             <!-- QUERY FORM -->
-            <form action="/query" method="post">
+            <form>
                 <div class="form-group">
                     <label>MySQL Query</label>
-                    <input type="text" class="form-control" name="query">
+                    <input type="text" class="form-control" ng-model="formData.query">
                 </div>
 
-                <button type="submit" class="btn btn-warning btn-lg">Submit</button>
+                <button type="submit" ng-click="queryDatabase()" class="btn btn-warning btn-lg">Submit</button>
             </form>
 
-            
+
+            <div ng-repeat="row in rows">
+            <!-- think about how you will handle the id changes -->
+                {{ row.name }}
+                {{row.first_name}}
+            </div>
 
         </div>
 

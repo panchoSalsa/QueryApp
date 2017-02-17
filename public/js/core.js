@@ -1,0 +1,1 @@
+angular.module('queryApp',['queryController','queryService']);
