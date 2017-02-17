@@ -14,11 +14,11 @@ angular.module('queryController',[])
 		$scope.queryDatabase = function() {
 			console.log("queryDatabase() called");
 			console.log($scope.formData.query);
-			$scope.formData = {};
 			$http.post('/query', $scope.formData)
 			.success(function(data) {
 				console.log(data);
 				$scope.rows = data;
+				$scope.formData = {};
 			});
 
 

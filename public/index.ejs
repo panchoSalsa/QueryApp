@@ -34,14 +34,26 @@
                 <button type="submit" ng-click="queryDatabase()" class="btn btn-warning btn-lg">Submit</button>
             </form>
 
-
-            <div ng-repeat="row in rows">
-            <!-- think about how you will handle the id changes -->
-                {{ row.name }}
-                {{row.first_name}}
-            </div>
-
         </div>
+
+        <table class="table table-hover table-striped">
+            <thead>
+                <tr>
+                    <th style="width:10%">ID#</th>
+                    <th style="width:40%">Title</th>
+                    <th style="width:20%">Year</th>
+                    <th style="width:30%">Director</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr data-ng-repeat="row in rows">
+                    <td>{{row.id}}</td>
+                    <td>{{row.title}}</td>
+                    <td>{{row.year}}</td>
+                    <td>{{row.director}}</td>
+                </tr>
+            </tbody>
+        </table>
 
     </div>
     
