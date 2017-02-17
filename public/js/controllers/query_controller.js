@@ -9,6 +9,7 @@ angular.module('queryController',[])
 			.success(function(data) {
 				$scope.rows = data;
 			});
+			
 
 		// when submitting the add form, send the text to the node API
 		$scope.queryDatabase = function() {
@@ -20,17 +21,5 @@ angular.module('queryController',[])
 				$scope.rows = data;
 				$scope.formData = {};
 			});
-
-
-			//console.log("$scope.rows" + $scope.rows);
-			
-			// Query.get($scope.formData)
-			// 	.success(function(data) {
-			// 		$scope.formData = {};
-			// 		$scope.rows = data;
-			// 	})
-			// 	.error(function(data) {
-			// 		console.log('error: ' + data);
-			// 	});
 		};
 	});

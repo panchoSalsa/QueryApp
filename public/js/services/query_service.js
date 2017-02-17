@@ -5,11 +5,5 @@ angular.module('queryService',[])
 			get : function() {
 				return $http.get('/all');
 			}
-			// get : function(queryData) {
-			// 	console.log("inside post service");
-			// 	$http.get('/query');
-			// 	return "one";
-			// 	// return $http.post('/query',queryData);
-			// }
 		}
 	});
