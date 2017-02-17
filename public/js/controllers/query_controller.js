@@ -22,4 +22,14 @@ angular.module('queryController',[])
 				$scope.formData = {};
 			});
 		};
+
+		$('#btn-run-query').on('click', function() {
+			var result = $('#builder').queryBuilder('getSQL');
+
+			if (result.sql.length) {
+				$scope.formData.query = "select * from movies where " + result.sql;
+				$scope.queryDatabase();
+				
+			}
+		});
 	});

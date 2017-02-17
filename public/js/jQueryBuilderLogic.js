@@ -24,3 +24,12 @@ $('#builder').queryBuilder({
   		operators: ['equal', 'not_equal']
   	}]
 });
+
+$('#btn-get-sql').on('click', function() {
+	var result = $('#builder').queryBuilder('getSQL');
+
+	if (result.sql.length) {
+		alert("query is " + result.sql);
+		
+	}
+});
