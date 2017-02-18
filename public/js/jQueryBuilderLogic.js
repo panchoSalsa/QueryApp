@@ -22,17 +22,30 @@ $('#builder').queryBuilder({
   		label: 'Director',
   		type: 'string',
   		operators: ['equal', 'not_equal']
-  	}]
+  	}],
+  	allow_groups: false
 });
 
-$('#btn-get-sql').on('click', function() {
+
+$('#builder').on('validationError.queryBuilder', function(e, rule, error, value) {
+	// never display error for my custom filter
+	console.log("YOU HAVE AN ERROR");
+	e.preventDefault();
+});
+
+$('#btn-get-sql').on('click', function(event) {
 	var result = $('#builder').queryBuilder('getSQL');
 
-	// TO-DO
-	// disable saving query when no query available 
+	// event.preventDefault();
 
 	if (result.sql.length) {
 		result = "select * from movies where " + result.sql;
 		this.href = 'data:text/plain;charset=utf-8,' + encodeURIComponent(result);
-	}
+	} 
+
+
+
+	// TO-DO
+	// disable saving query when no query available 
+
 });
