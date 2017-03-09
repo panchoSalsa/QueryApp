@@ -4,7 +4,7 @@ client_secret.json
 mean.pem.txt
 
 # Dependency directories
-/node_modules
+/config/
 /dist
 /.idea
 /resources
