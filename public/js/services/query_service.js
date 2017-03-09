@@ -4,6 +4,9 @@ angular.module('queryService',[])
 		return {
 			get : function() {
 				return $http.get('/all');
-			}
+			},
+			post_query : function(data) {
+				return $http.post('/query', data);
+			} 
 		}
 	});

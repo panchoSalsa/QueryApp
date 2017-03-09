@@ -1,6 +1,5 @@
 var db = require('./dbconnection');
 
-
 module.exports = function(app) {
 
     // server routes ===========================================================
@@ -11,7 +10,7 @@ module.exports = function(app) {
     });
 
     app.get('/all', function(req, res) {
-        db.query("Select id, title, year, director from movies limit 0, 200",function(err, rows, fields) {
+        db.query("Select record_id from TestingTable",function(err, rows, fields) {
             if (!err) {
                 res.send(JSON.stringify(rows));
             }
@@ -21,22 +20,13 @@ module.exports = function(app) {
     });
 
     app.post('/query', function(req,res) {
-        db.query(req.body.query, function(err, rows, fields) {
+        // prepend select statement to JQueryBuilder result
+        var sql_query = "select record_id from TestingTable where " + req.body.query;
+        db.query(sql_query, function(err, rows, fields) {
             if (!err)
                 res.send(JSON.stringify(rows));
             else
                 res.send(err);
         });
     });
-
-
-
-    // route to handle delete goes here (app.delete)
-
-    // frontend routes =========================================================
-    // route to handle all angular requests
-    // app.get('/', function(req, res) {
-    //     res.render('../public/form.ejs');; // load our public/index.ejs file
-    // });
-
 };
